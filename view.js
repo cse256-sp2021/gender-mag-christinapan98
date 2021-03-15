@@ -1,7 +1,28 @@
 // ---- Define your dialogs  and panels here ----
 
+var idPrefix = 'myId';
+var panel = define_new_effective_permissions(idPrefix);
+$('#sidepanel').append(panel);
 
+var userSelect = define_new_user_select_field(idPrefix, 'select', on_user_change = function(selected_user){
+    $(idPrefix).attr('filepath', '/C');
+    $(idPrefix).attr('username', 'selected_user');
+});
+$('#sidepanel').append(userSelect);
 
+var dialog = define_new_dialog(idPrefix, title='', options = {});
+
+// i can't find the info buttons????
+$('.my_class').click(function(){
+
+    console.log("you've been clicked!");
+    console.log($(idPrefix).attr('filepath'));
+    console.log($(idPrefix).attr('username'));
+});
+
+//figure out where the info buttons are first
+//function allow_user_action(file, user, permission_to_check, explain_why = false)
+//var my_file_obj_var = path_to_file[my_filename_var];
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
