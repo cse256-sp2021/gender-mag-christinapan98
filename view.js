@@ -5,7 +5,7 @@ var panel = define_new_effective_permissions(idPrefix);
 $('#sidepanel').append(panel);
 
 var userSelect = define_new_user_select_field(idPrefix, 'select', on_user_change = function(selected_user){
-    $(idPrefix).attr('filepath', '/C');
+    $(idPrefix).attr('filepath', '/C/presentation_documents/important_file.txt');
     $(idPrefix).attr('username', 'selected_user');
 });
 $('#sidepanel').append(userSelect);
@@ -13,6 +13,7 @@ $('#sidepanel').append(userSelect);
 var dialog = define_new_dialog(idPrefix, title='', options = {});
 
 // i can't find the info buttons????
+//-----------replace my_class with the class of the info button---------
 $('.my_class').click(function(){
 
     console.log("you've been clicked!");
@@ -21,8 +22,13 @@ $('.my_class').click(function(){
 });
 
 //figure out where the info buttons are first
-//function allow_user_action(file, user, permission_to_check, explain_why = false)
-//var my_file_obj_var = path_to_file[my_filename_var];
+var my_file_obj_var = path_to_file[my_filename_var];
+let user = all_users[username];
+
+var userAction = allow_user_action(my_file_obj_var, user, permission_to_check, explain_why = false);
+var exText = get_explanation_text(userAction);
+
+$(idPrefix).append(exText); //did I append this to the right elem?
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object
