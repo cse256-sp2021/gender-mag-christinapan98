@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "controller.js",
-    "url": "https://cse256-sp2021.github.io/gender-mag-christinapan98/",
+    "url": "https://cse256-sp2021.github.io/gender-mag/",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "sandbox": "node ./deploy/sandbox.js",

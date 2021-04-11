@@ -1,8 +1,8 @@
 require(__dirname + '/../aws-credentials.json'); // make sure that file is there before trying anything else
 const AWS = require('aws-sdk');
-// process.env.npm_package_url = 'if you are havimg errors about something being undefined then umcomment this line and replace this message with your github pages url.';
+process.env.npm_package_url = "https://cse256-sp2021.github.io/gender-mag-christinapan98/";
 if (
-    process.env.npm_package_url === "put your repository's home page url here"
+    process.env.npm_package_url === "https://cse256-sp2021.github.io/gender-mag-christinapan98/"
 ) {
     throw new Error(
         'Remember to change the url field in your package.json file to point to your github pages index.html.'
