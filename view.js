@@ -17,7 +17,7 @@ var dialog = define_new_dialog(idPrefix, title='', options = {});
 
 $('.perm_info').click(function(){
     console.log("you've been clicked!");
-    $('.perm_info').dialog('open');
+    dialog.dialog('open')
     //dialog.dialog();
     console.log($('#myId').attr('filepath'));
     console.log($('#myId').attr('username'));
