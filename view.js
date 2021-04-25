@@ -5,30 +5,33 @@ var panel = define_new_effective_permissions(idPrefix);
 $('#sidepanel').append(panel);
 
 var userSelect = define_new_user_select_field(idPrefix, 'select', on_user_change = function(selected_user){
-    $(idPrefix).attr('filepath', '/C/presentation_documents/important_file.txt');
-    $(idPrefix).attr('username', 'selected_user');
+    $('#myId').attr('filepath', '/C/presentation_documents/important_file.txt');
+    $('#myId').attr('username', selected_user);
+    
 });
 $('#sidepanel').append(userSelect);
 
+//note that options parameter is optional
 var dialog = define_new_dialog(idPrefix, title='', options = {});
 
-// i can't find the info buttons????
-//-----------replace my_class with the class of the info button---------
-$('.my_class').click(function(){
 
+$('.perm_info').click(function(){
     console.log("you've been clicked!");
-    console.log($(idPrefix).attr('filepath'));
-    console.log($(idPrefix).attr('username'));
+    $('.perm_info').dialog('open');
+    //dialog.dialog();
+    console.log($('#myId').attr('filepath'));
+    console.log($('#myId').attr('username'));
 });
 
 //figure out where the info buttons are first
-var my_file_obj_var = path_to_file[my_filename_var];
-let user = all_users[username];
+//var my_file_obj_var = path_to_file[my_filename_var];
+// let user = all_users[username];
 
-var userAction = allow_user_action(my_file_obj_var, user, permission_to_check, explain_why = false);
-var exText = get_explanation_text(userAction);
+// var userAction = allow_user_action(my_file_obj_var, user, permission_to_check, explain_why = false);
+// var exText = get_explanation_text(userAction);
 
-$(idPrefix).append(exText); //did I append this to the right elem?
+//$(idPrefix).append(exText); 
+//did I append this to the right elem?
 // ---- Display file structure ----
 
 // (recursively) makes and returns an html element (wrapped in a jquery object) for a given file object

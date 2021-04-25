@@ -146,7 +146,7 @@ function define_single_select_list(id_prefix, on_selection_change = function(sel
 // - id_prefix is a (required) unique string which will be prepended to all the generated elements.
 // - add_info_col is a boolean for whether you want a third column with "info" buttons (which do nothing by default)
 // - returns the jquery object for the effective permissions panel, ready to be attached/appended anywhere you want it.
-function define_new_effective_permissions(id_prefix, add_info_col = false, which_permissions = null){
+function define_new_effective_permissions(id_prefix, add_info_col = true, which_permissions = null){
     // Set up the table:
     let effective_container = $(`<div id="${id_prefix}" class="ui-widget-content" style="overflow-y:scroll"></div>`)
     
