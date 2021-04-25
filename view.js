@@ -17,10 +17,18 @@ var dialog = define_new_dialog(idPrefix, title='', options = {});
 
 $('.perm_info').click(function(){
     console.log("you've been clicked!");
-    dialog.dialog('open')
-    //dialog.dialog();
+    dialog.empty();
+    dialog.dialog('open');
+    
+    console.log($(this));
     console.log($('#myId').attr('filepath'));
     console.log($('#myId').attr('username'));
+    var my_file_obj_var = path_to_file[$('#myId').attr('filepath')];
+    let user = all_users[$('#myId').attr('username')];
+    var userAction = allow_user_action(my_file_obj_var, user, true, explain_why = true);
+    var exText = get_explanation_text(userAction);
+
+    dialog.append(exText); 
 });
 
 //figure out where the info buttons are first
