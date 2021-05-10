@@ -16,7 +16,7 @@ $('#sidepanel').append(`
 <br/>
 <p>To get started, 1) select a filepath from the left panel, then 2) pick a user. (User must be reselected each time a filepath is picked)</p>
 <br/>
-<p><b>***NOTE:*** Deleting/adding users/changing object inheritance is done through the left menu!</b><p/>`);
+<p><b>***NOTE:*** Deleting/adding users/changing permission inheritance is done through the left menu! If a checkbox is gray, its permission is being inherited.</b><p/>`);
 $('#sidepanel').append(`<br>`);
 $('#sidepanel').append(`<span><b>Filepath: </b><span> <span id="panel_filepath"></span>`);
 $('#sidepanel').append(userSelect);
