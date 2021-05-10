@@ -147,13 +147,14 @@ function define_single_select_list(id_prefix, on_selection_change = function(sel
 // - add_info_col is a boolean for whether you want a third column with "info" buttons (which do nothing by default)
 // - returns the jquery object for the effective permissions panel, ready to be attached/appended anywhere you want it.
 function define_new_effective_permissions(id_prefix, add_info_col = true, which_permissions = null){
+    //which_permissions = perm_groupnames
     // Set up the table:
     let effective_container = $(`<div id="${id_prefix}" class="ui-widget-content" style="overflow-y:scroll"></div>`)
     
     // If no subset of permissions is passed in, use all of them.
     if(which_permissions === null) {
         which_permissions = Object.values(permissions)
-    }
+    } 
     // add a row for each permission:
     for(let p of which_permissions) {
         let p_id = p.replace(/[ \/]/g, '_') //get jquery-readable id
@@ -200,6 +201,8 @@ function define_new_effective_permissions(id_prefix, add_info_col = true, which_
     // call update_effective_contents when either username or filepath changes:
     define_attribute_observer(effective_container, 'username', update_effective_contents)
     define_attribute_observer(effective_container, 'filepath', update_effective_contents)
+
+    
     
     return effective_container
 }
@@ -420,6 +423,8 @@ function define_file_permission_groups_list(id_prefix){
 
     }
 
+    define_attribute_observer(perm_list, 'filepath', update_perm_list)
+    //**a change i made--call update_effective_contents when permission for anything changes!! */
     define_attribute_observer(perm_list, 'filepath', update_perm_list)
 
     return perm_list
