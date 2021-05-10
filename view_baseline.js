@@ -402,7 +402,7 @@ $('#adv_perm_inheritance').change(function(){
             Warning: if you proceed, inheritable permissions will no longer propagate to this object.<br/>
             <br/>
             - Click Convert to convert inherited parent permissions into explicit, modifiable permissions on this object<br/>
-            - Click Remove to remove inherited parent permissions from this object entirely<br/>
+            - Click Remove to remove inherited parent permissions from this object entirely (Not Recommended)<br/>
             - Click Cancel if you do not want to modify inheritance settings at this time.<br/>
         </div>`).dialog({ // TODO: don't create this dialog on the fly
             modal: true,

@@ -3,21 +3,22 @@
 var idPrefix = 'myId';
 //var panel = define_new_effective_permissions(idPrefix);
 var panel = define_permission_checkboxes(idPrefix);
-var userSelect = define_new_user_select_field(idPrefix, 'select', on_user_change = function(selected_user){
-    $('#myId').attr('filepath', '/C/presentation_documents/important_file.txt');
-    console.log("hii" + $('#myId').attr('filepath'));
+var userSelect = define_new_user_select_field(idPrefix, 'select user', on_user_change = function(selected_user){
+    //$('#myId').attr('filepath', '/C/presentation_documents/important_file.txt');
+    //console.log("hii" + $('#myId').attr('filepath'));
     // why is this undefined???
-    $('#panel_filepath').append(`<span> ${$('#myId').attr('filepath')} </span>`);
     $('#myId').attr('username', selected_user);
     
 });
-$('#sidepanel').append(`<h2>View Effective Permissions</h2>`);
+$('#sidepanel').append(`<h2>Detailed Permissions</h2>`);
 $('#sidepanel').append(`
-<p>Please view user permissions for each action by 1) selecting a filepath from the left, then 2) clicking "select" and picking a user from the menu.</p>
+<p>Here you may view/edit detailed permissions that a given user has to access a specific filepath.</p>
+<br/>
+<p>To get started, 1) select a filepath from the left panel, then 2) pick a user. (User must be reselected each time a filepath is picked)</p>
 <br/>
 <p><b>***NOTE:*** Deleting/adding users/changing object inheritance is done through the left menu!</b><p/>`);
 $('#sidepanel').append(`<br>`);
-$('#sidepanel').append(`<span id="panel_filepath"><b>Filepath: </b><span>`);
+$('#sidepanel').append(`<span><b>Filepath: </b><span> <span id="panel_filepath"></span>`);
 $('#sidepanel').append(userSelect);
 $('#sidepanel').append(panel);
 
@@ -163,7 +164,9 @@ $('.permbutton').click( function( e ) {
 $('.filebutton').click(function(e) {
     let path = e.currentTarget.getAttribute('path');
     $('#myId').attr('filepath', path);
+    $('#panel_filepath').text(`${$('#myId').attr('filepath')}`);
     console.log(path);
+    console.log('registered as: ' + $('#myId').attr('filepath'));
 });
 
 
